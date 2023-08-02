@@ -14,11 +14,9 @@ QRCode.toCanvas(canvas, 'sample text', function (error) {
 }) */
 
 document.getElementById('generateBtn').addEventListener('click', function () {
-    var QRCode = require('qrcode'); // You don't need to require again, just use the existing QRCode object.
-  
     var textInput = document.getElementById('textInput').value; // Get the text input value
     var qrCodeContainer = document.getElementById('qrcode'); // Get the div container
-  
+
     QRCode.toDataURL(textInput, function (error, url) { // Generate the QR code data URL with the input text
       if (error) {
         console.error(error);
@@ -30,6 +28,7 @@ document.getElementById('generateBtn').addEventListener('click', function () {
         console.log('success!');
       }
     });
-  });
+});
+
   
   
