@@ -17,18 +17,18 @@ document.getElementById('generateBtn').addEventListener('click', function () {
     var textInput = document.getElementById('textInput').value; // Get the text input value
     var qrCodeContainer = document.getElementById('qrcode'); // Get the div container
 
-    QRCode.toDataURL(textInput, function (error, url) { // Generate the QR code data URL with the input text
-      if (error) {
-        console.error(error);
-      } else {
-        var qrCodeImage = document.createElement('img'); // Create an <img> element
-        qrCodeImage.src = url; // Set the src attribute to the QR code data URL
-        qrCodeContainer.innerHTML = ''; // Clear the container in case there's already a QR code
-        qrCodeContainer.appendChild(qrCodeImage); // Append the QR code image to the container
-        console.log('success!');
-      }
+    qrCodeContainer.innerHTML = ''; // Clear the container in case there's already a QR code
+
+    var qrcode = new QRCode(qrCodeContainer, {
+      text: textInput,
+      width: 128,
+      height: 128
     });
+
+    console.log('success!');
 });
+
+
 
   
   
